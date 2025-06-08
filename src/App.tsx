@@ -1,13 +1,13 @@
 "use client";
 import "./App.css";
-import ImageZoom from "./components/ImageZoom";
+import { default as ImageZoomDemo } from "./components/ImageZoom";
 
 function App() {
      return (
           <div className="container mx-auto mt-3 p-4">
                <h1 className="text-2xl font-bold mb-4">Image Zoom Demo</h1>
 
-               <div className="w-56">
+               <div>
                     {/* Regular Image */}
                     <div className="space-y-2">
                          <h2 className="text-lg font-semibold">
@@ -27,17 +27,11 @@ function App() {
                          <h2 className="text-lg font-semibold">
                               Zoomable Image
                          </h2>
-                         <ImageZoom
-                              src="/image.png"
-                              alt="Product image"
-                              width="400px"
-                              height="400px"
-                              zoomScale={3}
-                              zoomSize={110}
-                              className="rounded-lg overflow-hidden border"
-                              zoomClassName="shadow-xl"
-                         />
                     </div>
+               </div>
+
+               <div>
+                    <ImageZoomDemo />
                </div>
 
                <div className="mt-8 text-sm text-gray-600">
