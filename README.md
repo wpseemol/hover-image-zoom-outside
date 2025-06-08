@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# hover-image-hover-outside
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**hover-image-hover-outside** is a lightweight JavaScript package that enables image zoom and hover effects outside the image container. It is ideal for product galleries, portfolios, and any scenario where you want to provide a detailed view of images on hover without cluttering the original layout.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-    Zoomed image appears outside the original image boundary
+-    Customizable zoom area and position
+-    Easy integration with any frontend framework or plain HTML/JS
+-    Minimal dependencies and fast performance
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install hover-image-hover-outside
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+or
+
+```bash
+yarn add hover-image-hover-outside
+```
+
+## Usage
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import { hoverImageOutside } from "hover-image-hover-outside";
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+hoverImageOutside(document.querySelector(".zoom-image"), {
+     zoomArea: "right", // or 'left', 'top', 'bottom'
+     zoomScale: 2,
+});
 ```
+
+**HTML Example:**
+
+```html
+<img class="zoom-image" src="your-image.jpg" alt="Zoomable" />
+```
+
+## Options
+
+| Option    | Type   | Default | Description                                 |
+| --------- | ------ | ------- | ------------------------------------------- |
+| zoomArea  | string | right   | Position of zoomed image (right, left, etc) |
+| zoomScale | number | 2       | Magnification scale                         |
+| offset    | number | 10      | Space between original and zoomed image     |
+
+## Demo
+
+Below is a demo image showing the hover effect in action:
+
+<img src="/public/demo-screenshot.png" alr="Demo Image">

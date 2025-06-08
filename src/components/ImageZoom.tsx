@@ -43,7 +43,7 @@ export default function ImageZoom({
      );
 
      return (
-          <div className="relative border border-red-500">
+          <div className="relative ">
                <div
                     ref={containerRef}
                     className={`relative ${className} rounded-lg overflow-hidden border`}
@@ -62,7 +62,7 @@ export default function ImageZoom({
                     {/* Zoomed Preview (absolute positioned) */}
                     {isHovered && (
                          <div
-                              className={`absolute top-0 right-1 border-2 border-white rounded-lg shadow-lg overflow-hidden pointer-events-none ${zoomClassName}`}
+                              className={`absolute border-2 border-white rounded-lg shadow-lg overflow-hidden pointer-events-none bg-green-900/40 ${zoomClassName}`}
                               style={{
                                    width: `${zoomSize}px`,
                                    height: `${zoomSize}px`,
